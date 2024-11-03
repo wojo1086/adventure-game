@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { Body, ConflictException, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { CreateUserDto } from '../user/create-user.dto';
 import { getAuth } from 'firebase-admin/auth';
 import { FirebaseApp, initializeApp } from 'firebase/app';
@@ -10,13 +10,14 @@ import {
 import { ConfigService } from '@nestjs/config';
 import { LoginDto } from './login.dto';
 import { AuthGuard } from './auth.guard';
+import { UsersService } from '../user/user.service';
 
 @Controller('auth')
 export class AuthController {
     app: FirebaseApp;
     fAuth: Auth;
 
-    constructor(private configService: ConfigService) {
+    constructor(private configService: ConfigService, private usersService: UsersService) {
         this.app = initializeApp({
             apiKey: configService.get('apiKey'),
             authDomain: configService.get('authDomain'),
@@ -33,10 +34,17 @@ export class AuthController {
     async createAccount(@Body() createUserDto: CreateUserDto) {
         return getAuth()
             .createUser(createUserDto)
-            .then(() => {
-                return {
-                    message: 'Your account has been successfully created!',
-                };
+            .then(async res => {
+                return this.usersService.create({uid: res.uid, email: res.email})
+                    .then(() => {
+                        return {
+                            message: 'Your account has been successfully created!',
+                        };
+                    }).catch(error => {
+                    if (error.errno === 1062) {
+                        throw new ConflictException();
+                    }
+                });
             });
     }
 

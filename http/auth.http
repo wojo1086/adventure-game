@@ -17,10 +17,11 @@ Content-Type: application/json
 > {% client.global.set("accessToken", response.body.accessToken); %}
 
 
-### POST login
+### GET test JWT
 // @no-log
 GET {{url}}:{{port}}/auth/test
 Content-Type: application/json
 Authorization: Bearer {{accessToken}}
 
 {"email":  "{{users.test.email}}", "password": "{{users.test.password}}"}
+
