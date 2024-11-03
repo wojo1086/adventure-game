@@ -38,7 +38,7 @@ export class AuthController {
                 return this.usersService.create({uid: res.uid, email: res.email})
                     .then(() => {
                         return {
-                            message: 'Your account has been successfully created!',
+                            message: 'Your account has been successfully created! You can now login.',
                         };
                     }).catch(error => {
                     if (error.errno === 1062) {
