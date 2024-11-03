@@ -1,0 +1,26 @@
+### POST create user
+// @no-log
+POST {{url}}:{{port}}/auth/create-account
+Content-Type: application/json
+
+{"email":  "{{users.test.email}}", "password": "{{users.test.password}}"}
+
+###
+
+
+### POST login
+// @no-log
+POST {{url}}:{{port}}/auth/login
+Content-Type: application/json
+
+{"email":  "{{users.test.email}}", "password": "{{users.test.password}}"}
+> {% client.global.set("accessToken", response.body.accessToken); %}
+
+
+### POST login
+// @no-log
+GET {{url}}:{{port}}/auth/test
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{"email":  "{{users.test.email}}", "password": "{{users.test.password}}"}
