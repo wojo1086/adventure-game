@@ -1,7 +1,7 @@
 import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeepPartial, DeleteResult, Repository, UpdateResult } from 'typeorm';
-import { User } from './entities/user.entity';
+import { User } from "./entities/users.entity";
 import { ConfigService } from '@nestjs/config';
 
 @Injectable()

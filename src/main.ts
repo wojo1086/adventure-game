@@ -22,8 +22,8 @@ async function bootstrap() {
     });
 
     const config = new DocumentBuilder()
-        .setTitle('Adventure Game')
-        .setDescription('API endpoints for the Adventure Game.')
+        .setTitle('The Fractured Realms')
+        .setDescription('API endpoints for the Fractured Realms game.')
         .setVersion('0.0')
         .build();
     const documentFactory = () => SwaggerModule.createDocument(app, config);

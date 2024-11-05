@@ -16,7 +16,6 @@ Content-Type: application/json
 {"email":  "{{users.test.email}}", "password": "{{users.test.password}}"}
 > {% client.global.set("accessToken", response.body.accessToken); %}
 
-
 ### GET test JWT
 // @no-log
 GET {{url}}:{{port}}/auth/test

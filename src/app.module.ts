@@ -5,8 +5,10 @@ import { AuthModule } from "./auth/auth.module";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { configuration } from '../config/configuration';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UsersModule } from './user/user.module';
-import { CharacterModule } from './character/character.module';
+import { UsersModule } from './users/users.module';
+import { CharactersModule } from './characters/characters.module';
+import { RacesModule } from './races/races.module';
+import { ClassesModule } from './classes/classes.module';
 
 @Module({
   imports: [
@@ -31,7 +33,9 @@ import { CharacterModule } from './character/character.module';
           inject: [ConfigService]
       }),
       UsersModule,
-      CharacterModule
+      CharactersModule,
+      RacesModule,
+      ClassesModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -3,7 +3,7 @@ import { CreateCharacterDto } from './dto/create-character.dto';
 import { UpdateCharacterDto } from './dto/update-character.dto';
 
 @Injectable()
-export class CharacterService {
+export class CharactersService {
   create(createCharacterDto: CreateCharacterDto) {
     return 'This action adds a new character';
   }

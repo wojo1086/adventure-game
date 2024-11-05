@@ -1,0 +1,13 @@
+### GET all races
+// @no-log
+GET {{url}}:{{port}}/races
+Content-Type: application/json
+
+###
+
+### GET race by id
+// @no-log
+GET {{url}}:{{port}}/races/3
+Content-Type: application/json
+
+###

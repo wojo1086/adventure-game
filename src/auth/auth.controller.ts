@@ -1,5 +1,5 @@
 import { Body, ConflictException, Controller, Get, Post, UseGuards } from '@nestjs/common';
-import { CreateUserDto } from '../user/create-user.dto';
+import { CreateUserDto } from '../users/dto/create-user.dto';
 import { getAuth } from 'firebase-admin/auth';
 import { FirebaseApp, initializeApp } from 'firebase/app';
 import {
@@ -10,7 +10,7 @@ import {
 import { ConfigService } from '@nestjs/config';
 import { LoginDto } from './login.dto';
 import { AuthGuard } from './auth.guard';
-import { UsersService } from '../user/user.service';
+import { UsersService } from '../users/users.service';
 
 @Controller('auth')
 export class AuthController {
