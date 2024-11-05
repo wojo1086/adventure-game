@@ -10,7 +10,7 @@ export class Class {
 
     @Column({
         type: "varchar",
-        length: 300
+        length: 500
     })
     description: string;
 }
