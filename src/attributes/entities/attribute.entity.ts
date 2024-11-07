@@ -1,5 +1,13 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
+export enum AttributeType {
+    STRENGTH,
+    DEXTERITY,
+    CONSTITUTION,
+    INTELLIGENCE,
+    WISDOM
+}
+
 @Entity()
 export class Attribute {
     @PrimaryGeneratedColumn()

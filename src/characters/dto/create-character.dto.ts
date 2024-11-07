@@ -5,9 +5,9 @@ import {
     ArrayMinSize,
     IsArray,
     IsIn,
-    IsNotEmpty, IsOptional,
-    Length
+    IsNotEmpty, Length, ValidateIf
 } from "class-validator";
+import { User } from '../../users/entities/users.entity';
 
 export class CreateCharacterDto {
     @ApiProperty()
@@ -24,10 +24,12 @@ export class CreateCharacterDto {
     race: number;
 
     @ApiProperty()
+    @ValidateIf(o => o.race === 1)
     @IsArray()
-    @ArrayContains([1, 2, 3, 4, 5])
+    @ArrayContains([0, 1, 2, 3, 4])
     @ArrayMinSize(2)
     @ArrayMaxSize(2)
-    @IsOptional()
-    humanAbilities: number[];
+    humanAttributes: number[];
+
+    user: User;
 }
