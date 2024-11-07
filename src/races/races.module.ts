@@ -8,5 +8,6 @@ import { Race } from "./entities/race.entity";
     imports: [TypeOrmModule.forFeature([Race])],
     controllers: [RacesController],
     providers: [RacesService],
+    exports: [RacesService],
 })
 export class RacesModule {}

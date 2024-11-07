@@ -6,12 +6,13 @@ import { RacesService } from '../races/races.service';
 import { Repository } from 'typeorm';
 import { Character } from './entities/character.entity';
 import { ClassesService } from '../classes/classes.service';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class CharactersService {
 
-    constructor(private usersService: UsersService,
-                private characterRepository: Repository<Character>,
+    constructor(@InjectRepository(Character) private characterRepository: Repository<Character>,
+                private usersService: UsersService,
                 private classesService: ClassesService,
                 private racesService: RacesService) {
     }
