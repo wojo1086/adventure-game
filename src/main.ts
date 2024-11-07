@@ -25,6 +25,7 @@ async function bootstrap() {
         .setTitle('The Fractured Realms')
         .setDescription('API endpoints for the Fractured Realms game.')
         .setVersion('0.0')
+        .addBearerAuth()
         .build();
     const documentFactory = () => SwaggerModule.createDocument(app, config);
     SwaggerModule.setup('api', app, documentFactory);

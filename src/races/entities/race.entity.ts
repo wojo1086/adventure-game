@@ -6,7 +6,9 @@ export class Race {
     id: number;
 
     @Column({
-        unique: true
+        unique: true,
+        type: "varchar",
+        length: 20
     })
     name: string;
 
@@ -15,7 +17,5 @@ export class Race {
         length: 300
     })
     description: string;
-
-
 
 }

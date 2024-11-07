@@ -7,7 +7,7 @@ Content-Type: application/json
 
 ### GET race by id
 // @no-log
-GET {{url}}:{{port}}/classes/3
+GET {{url}}:{{port}}/classes/2
 Content-Type: application/json
 
 ###

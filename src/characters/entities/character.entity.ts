@@ -31,26 +31,6 @@ export class Character {
     })
     experience: number;
 
-    @Column({
-        default: 0,
-    })
-    strength: number;
-
-    @Column({
-        default: 0,
-    })
-    dexterity: number;
-
-    @Column({
-        default: 0,
-    })
-    constitution: number;
-
-    @Column({
-        default: 0,
-    })
-    intelligence: number;
-
     @OneToOne(() => Race, (race) => race.id, {
         eager: true,
     })

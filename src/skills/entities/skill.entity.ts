@@ -1,14 +1,14 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class Class {
+export class Skill {
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column({
-        unique: true,
         type: "varchar",
-        length: 12
+        length: 20,
+        unique: true,
     })
     name: string;
 
@@ -17,4 +17,7 @@ export class Class {
         length: 500
     })
     description: string;
+
+    @Column()
+    ability: string;
 }
